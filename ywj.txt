@@ -1,0 +1,74 @@
+@echo off
+echo ==========================================
+echo 配置内网静态路由: 走有线网卡
+echo ==========================================
+
+:: 删除可能已存在的路由
+route delete 10.150.150.0
+
+route delete 168.68.62.10
+route delete 168.68.62.249
+route delete 168.68.201.18
+route delete 168.68.201.35
+route delete 168.68.201.87
+
+route delete 172.16.3.151
+route delete 172.16.6.3
+route delete 172.16.6.4
+route delete 172.16.8.2
+route delete 172.16.8.3
+
+route delete 192.167.5.39
+route delete 192.167.5.115
+route delete 192.167.5.123
+route delete 192.167.5.124
+route delete 192.167.5.175
+route delete 192.167.5.191
+route delete 192.167.5.233
+route delete 192.167.5.253
+
+route delete 192.168.201.35
+route delete 192.168.201.108
+route delete 192.168.201.130
+
+route delete 192.168.203.101
+route delete 192.168.203.181
+
+
+:: 添加路由
+route -p add 10.150.150.0 mask 255.255.255.0 10.150.150.1 metric 1 if 18
+
+route -p add 168.68.62.10 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 168.68.62.249 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 168.68.201.18 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 168.68.201.35 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 168.68.201.87 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+
+route -p add 172.16.3.151 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 172.16.6.3 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 172.16.6.4 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 172.16.8.2 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 172.16.8.3 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+
+route -p add 192.167.5.39 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 192.167.5.115 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 192.167.5.123 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 192.167.5.124 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 192.167.5.175 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 192.167.5.191 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 192.167.5.233 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 192.167.5.253 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+
+route -p add 192.168.201.35 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 192.168.201.108 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 192.168.201.130 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+
+route -p add 192.168.203.101 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+route -p add 192.168.203.181 mask 255.255.255.255 10.150.150.1 metric 1 if 18
+
+
+echo.
+echo ==========================================
+echo 内网路由已添加完成（接口 18, 有线直连）
+echo ==========================================
+pause
